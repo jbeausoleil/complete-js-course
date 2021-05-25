@@ -1,6 +1,8 @@
 'use strict';
 
 ///////////////////////////////////////
+// APPLICATION
+///////////////////////////////////////
 // Modal window
 
 const modal = document.querySelector('.modal');
@@ -29,3 +31,38 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+///////////////////////////////////////
+// LECTURE
+///////////////////////////////////////
+console.log(document.documentElement);
+const header = document.querySelector('.header');
+
+const allSections = document.querySelectorAll('.section'); // NODE LIST which is not a live collection
+console.log(allSections);
+
+document.getElementById('section--1');
+
+const allButtons = document.getElementsByTagName('button'); // Live HTMLCollection (as dom changes this will change)
+console.log(allButtons);
+
+document.getElementsByClassName('btn'); // Live HTMLCollection (as dom changes this will change)
+// ----------- Creating and inserting elements -----------
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+// message.textContent = 'We use cookies for improved functionality and analytics.'
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+// header.prepend(message); // prepend adds as first child
+header.append(message); // append adds as last child
+// header.append(message.cloneNode(true)) // Allows for existence in multiple places
+// header.before(message)
+
+// ----------- deleting elements -----------
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    // message.remove(); // most recent implementation
+    message.parentElement.removeChild(message); // DOM traversing -- select parent then select child
+  });
