@@ -273,6 +273,7 @@ class PersonCl {
   }
 }
 
+// ------------ Class Inheritance: ES6 ------------
 class StudentCl extends PersonCl {
   constructor(fullName, birthYear, course) {
     super(fullName, birthYear);
